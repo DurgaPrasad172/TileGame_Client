@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const apiBaseUrl = "http://localhost:3211";
+const apiBaseUrl = "https://tilegame-server.onrender.com";
 
 function getRandomIntWithPadding(min, max, padding) {
   const randomValue = Math.floor(Math.random() * (max - min + 1) + min);
