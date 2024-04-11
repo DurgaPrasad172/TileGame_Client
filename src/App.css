@@ -1,38 +1,144 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+
+
+
+.grid-container {
+  z-index: 0;
+  background-color: rgb(0, 0, 0);
+  height: 100vh;
+  width: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+button {
+  background-color: white;
+  border: none;
+  display: flex;
+  margin-right: 2vh;
+  border-radius: 6px;
+  height: 4vh;
+  width: 15vh;
+  align-items: center;
+  justify-content: space-around;
+}
+
+p {
   color: white;
+  margin-right: 2vh !important;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.App-link {
-  color: #61dafb;
+.stats {
+  height: fit-content;
+  display: flex;
+  margin-top: 1vh;
+  position: absolute;
+  margin-left: 1vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+label {
+  display: flex;
+  height: fit-content;
+  color: white;
+  margin-top: 0.5vh;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+select {
+  height: 3vh;
+  width: 20vh;
+  display: flex;
+  align-items: center;
+}
+
+.red {
+  position: relative;
+  z-index: 1;
+  background-color: red;
+  margin: 0.1vh;
+  height: 8.8vh;
+  width: 8.8vh;
+  border-radius: 30%;
+  position: relative;
+  top: 11vh;
+}
+
+.green {
+  margin: 0.1vh;
+  background-color: #2aae30;
+  height: 8.8vh;
+  width: 8.8vh;
+  border-radius: 30%;
+  position: relative;
+  top: 11vh;
+}
+
+.blue {
+  position: relative;
+  z-index: 0;
+  background-color: blue;
+  height: 8.8vh;
+  width: 8.8vh;
+  border-radius: 30%;
+  position: absolute;
+  animation: blueAppear 1s linear infinite;
+}
+
+.redRow {
+  animation: redRow 2s linear infinite alternate;
+}
+
+.blink {
+  animation: blink 1s linear;
+  animation-iteration-count: 3;
+}
+
+.blue:active {
+  animation: blink 1s 3;
+  animation-iteration-count: 3;
+}
+
+.red:active {
+  animation: blink 1s;
+  animation-iteration-count: 3;
+}
+
+@keyframes redRow {
+  0% {
+      transform: translateX(0);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+      transform: translateX(60vh);
+  }
+}
+
+@keyframes blueAppear {
+  0% {
+      transform: translateX(100%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 1;
   }
 }
